@@ -1,0 +1,41 @@
+{
+  "Preprocessor Headers": {
+    "prefix": "prep",
+    "body": [
+      "#include <iostream>",
+      "#include <string>",
+      "#include <vector>",
+      "using std::cout, std::cin, std::endl, std::getline, std::string, std::vector;",
+      "$0"
+    ],
+    "description": "Standard preprocessor directives"
+  },
+  "Main Function": {
+    "prefix": "mainn",
+    "body": [
+      "int main()",
+      "{",
+      "\t$0",
+      "\treturn 0;",
+      "}"
+    ]
+  },
+  "For Loop": {
+    "prefix": "forr",
+    "body": [
+      "for (int i = 0; i < $1; i++)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+  "While Loop": {
+    "prefix": "whilee",
+    "body": [
+      "while ($1)",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  }
+}
