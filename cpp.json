@@ -18,7 +18,8 @@
       "\t$0",
       "\treturn 0;",
       "}"
-    ]
+    ],
+    "description": "Main function template"
   },
   "For Loop": {
     "prefix": "forr",
@@ -27,7 +28,8 @@
       "{",
       "\t$0",
       "}"
-    ]
+    ],
+    "description": "For loop structure"
   },
   "While Loop": {
     "prefix": "whilee",
@@ -36,6 +38,217 @@
       "{",
       "\t$0",
       "}"
-    ]
+    ],
+    "description": "While loop structure"
+  },
+  "If Else": {
+    "prefix": "ifelse",
+    "body": [
+      "if ($1)",
+      "{",
+      "\t$0",
+      "}",
+      "else if ($2)",
+      "{",
+      "}",
+      "else",
+      "{",
+      "}"
+    ],
+    "description": "If / Else conditional structure"
+  },
+  "Switch": {
+    "prefix": "switchh",
+    "body": [
+      "switch ($1)",
+      "{",
+      "\tcase 1:",
+      "\t{",
+      "\t\tbreak;",
+      "\t}",
+      "\tcase 2:",
+      "\t{",
+      "\t\tbreak;",
+      "\t}",
+      "\tdefault:",
+      "\t{",
+      "\t\tbreak;",
+      "\t}",
+      "}"
+    ],
+    "description": "Switch case structure"
+  },
+  "Function Template": {
+    "prefix": "func",
+    "body": [
+      "int $1(int $2)",
+      "{",
+      "\t$0",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Generic function template"
+  },
+  "Validation": {
+    "prefix": "validate",
+    "body": [
+      "int $1 = 0;",
+      "bool $2 = false;",
+      "",
+      "do",
+      "{",
+      "\tcout << \"Enter a value: \";",
+      "\tif (!(cin >> $1))",
+      "\t{",
+      "\t\tcout << \"ERROR: Invalid input type.\" << endl;",
+      "\t\tcin.clear();",
+      "\t\tcin.ignore(10000, '\\n');",
+      "\t}",
+      "\telse if (false)",
+      "\t{",
+      "\t\tcout << \"ERROR: Input did not meet validation criteria.\" << endl;",
+      "\t}",
+      "\telse",
+      "\t{",
+      "\t\t$2 = true;",
+      "\t}",
+      "}",
+      "while (!$2);"
+    ],
+    "description": "Generic input validation loop"
+  },
+  "Try Catch Throw": {
+    "prefix": "trycatch",
+    "body": [
+      "try",
+      "{",
+      "\t$0",
+      "}",
+      "catch (...)",
+      "{",
+      "\tcout << \"An error occurred.\" << endl;",
+      "}"
+    ],
+    "description": "Generic try-catch structure"
+  },
+  "File I/O": {
+    "prefix": "fileio",
+    "body": [
+      "#include <fstream>",
+      "#include <string>",
+      "",
+      "std::ifstream inputFile(\"input.txt\");",
+      "std::ofstream outputFile(\"output.txt\");",
+      "std::string line;",
+      "",
+      "while (getline(inputFile, line))",
+      "{",
+      "\toutputFile << line << std::endl;",
+      "}",
+      "",
+      "inputFile.close();",
+      "outputFile.close();"
+    ],
+    "description": "Generic file input/output structure"
+  },
+  "Class Definition": {
+    "prefix": "classdef",
+    "body": [
+      "class $1",
+      "{",
+      "private:",
+      "\tint id;",
+      "\tstd::string name;",
+      "",
+      "public:",
+      "\t$1()",
+      "\t{",
+      "\t\tid = 0;",
+      "\t\tname = \"Undefined\";",
+      "\t}",
+      "",
+      "\t$1(int newId, const std::string &newName)",
+      "\t{",
+      "\t\tid = newId;",
+      "\t\tname = newName;",
+      "\t}",
+      "",
+      "\tvoid SetId(int newId)",
+      "\t{",
+      "\t\tid = newId;",
+      "\t}",
+      "",
+      "\tvoid SetName(const std::string &newName)",
+      "\t{",
+      "\t\tname = newName;",
+      "\t}",
+      "",
+      "\tint GetId() const",
+      "\t{",
+      "\t\treturn id;",
+      "\t}",
+      "",
+      "\tstd::string GetName() const",
+      "\t{",
+      "\t\treturn name;",
+      "\t}",
+      "",
+      "\tvoid Display() const",
+      "\t{",
+      "\t\tstd::cout << \"ID: \" << id << \", Name: \" << name << std::endl;",
+      "\t}",
+      "};"
+    ],
+    "description": "Generic class definition"
+  },
+  "Template Function": {
+    "prefix": "templatefunc",
+    "body": [
+      "template <typename T>",
+      "T AddValues(T a, T b)",
+      "{",
+      "\treturn a + b;",
+      "}"
+    ],
+    "description": "Generic template function"
+  },
+  "Struct Definition": {
+    "prefix": "structdef",
+    "body": [
+      "struct $1",
+      "{",
+      "\tint id;",
+      "\tstd::string name;",
+      "\tdouble value;",
+      "};"
+    ],
+    "description": "Generic struct definition"
+  },
+  "Starter Template": {
+    "prefix": "starter",
+    "body": [
+      "#include <iostream>",
+      "#include <iomanip>",
+      "#include <string>",
+      "#include <vector>",
+      "#include <fstream>",
+      "#include <sstream>",
+      "#include <limits>",
+      "",
+      "using std::cout;",
+      "using std::cin;",
+      "using std::endl;",
+      "using std::getline;",
+      "using std::string;",
+      "using std::vector;",
+      "using std::ifstream;",
+      "using std::ofstream;",
+      "using std::stringstream;",
+      "using std::fixed;",
+      "using std::setprecision;",
+      "",
+      "$0"
+    ],
+    "description": "Starter include and using declarations"
   }
 }
